@@ -4,8 +4,11 @@ import './App.css'
 import Root from './pages/Root'
 import HomePage from './pages/HomePage'
 import SearchPage from './pages/search/SearchPages'
-import DetailPage from './pages/DetailsPage'
+
 import { searchLoader } from './pages/search/searchLoader'
+import { detailLoader } from './pages/details/detailLoader'
+import DetailsPage from './pages/details/DetailsPage'
+import { homeLoader } from './pages/home/homeLoader'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,7 +16,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />
+        element: <HomePage />,
+        loader: homeLoader
       },
       {
         path: '/search',
@@ -22,7 +26,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/packages/:name",
-        element: <DetailPage />
+        element: <DetailsPage />,
+        loader: detailLoader
       }
     ]
   }
